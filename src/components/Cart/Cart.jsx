@@ -1,11 +1,18 @@
 import React from "react";
 
-
-const Cart = ({ cart, removeCart}) => {
+const Cart = ({ cart, removeCart }) => {
   return (
     <>
-      <h1 className="text-4xl font-bold text-center">{cart.length}</h1>
-      <div>
+      {cart.length === 0 && (
+        <h1 className="text-lg font-bold text-center">please add your Favourite T Shirts</h1>
+      )}
+      {
+        cart.length > 0 && (
+            <h1 className="text-lg font-bold text-center">Great have a nice day sir !!</h1>
+        )
+      }
+
+      <div className={cart.length > 4 ? 'bg-gradient-to-t from-purple-500 p-5 to-pink-500 text-black rounded-lg' : ""}>
         {cart.map((shirt) => (
           <div
             key={shirt._id}
